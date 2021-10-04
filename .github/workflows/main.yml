@@ -36,19 +36,19 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          yarn install --frozen-lockfile
       - name: Lint
         run: |
-          npm run lint
+          yarn run lint
       - name: Unit Test
         run: |
-          npm run test 
+          yarn run test 
       - name: E2E Test
         run: |
-          npm run e2e-ci
+          yarn run e2e-ci
       - name: Build
         run: |
-          npm run build-production
+          yarn run build-production
       - name: "Deploy to Vercel"
         run: |
           prodRun=""
