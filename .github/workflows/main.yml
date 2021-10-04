@@ -28,11 +28,9 @@ jobs:
         with:
           # caching node_modules
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+              ${{ runner.os }}-yarn-            
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
@@ -44,8 +42,14 @@ jobs:
         run: |
           yarn run test 
       - name: E2E Test
-        run: |
-          yarn run e2e-ci
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+          config-file: tests/cypress.json
+          start: npm start
+          wait-on: 'http://localhost:4200'
+          store_artifacts: true
       - name: Build
         run: |
           yarn run build-production
