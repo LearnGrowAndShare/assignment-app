@@ -46,7 +46,7 @@ jobs:
         with:
           browser: chrome
           headless: true
-          config-file: tests/cypress.json
+          config-file: cypress.json
           start: npm start
           wait-on: 'http://localhost:4200'
           store_artifacts: true
