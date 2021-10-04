@@ -80,7 +80,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts}": [
+    "src/**/*.{ts, html}": [
       "eslint --fix"
     ],
     "src/**/*.scss": [
