@@ -10,7 +10,7 @@
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss",
     "lint-fix": "ng lint --fix",
     "e2e": "ng e2e",
-    "e2e-ci": "ng e2e --headless",
+    "e2e-ci": "ng e2e --headless  --configuration production",
     "documentation": "compodoc -p tsconfig.doc.json -d build/docs",
     "prepare": "husky install"
   },
