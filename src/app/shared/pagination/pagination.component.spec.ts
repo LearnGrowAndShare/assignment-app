@@ -3,22 +3,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationComponent } from './pagination.component';
 
 describe('PaginationComponent', () => {
-  let component: PaginationComponent;
-  let fixture: ComponentFixture<PaginationComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PaginationComponent],
     }).compileComponents();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PaginationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(PaginationComponent);
+    const app = fixture.componentInstance;
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(app).toBeTruthy();
   });
 });

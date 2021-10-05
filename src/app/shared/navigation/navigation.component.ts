@@ -6,8 +6,4 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class NavigationComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class NavigationComponent {}
