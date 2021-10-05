@@ -128,6 +128,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     this.pageConfig.previous = this.currentPage - 1 > 0;
     if (!this.pageConfig.previous) {
       --this.currentPage;
+      this.pageConfig.next = false;
       this.pageChanged.emit({ limit: this.currentPageSize, offset: this.currentPage });
     }
   }
@@ -136,6 +137,7 @@ export class PaginationComponent implements OnChanges, OnInit {
     this.pageConfig.next = this.currentPage + 1 === this.totalPage;
     if (!this.pageConfig.next) {
       ++this.currentPage;
+      this.pageConfig.previous = false;
       this.pageChanged.emit({ limit: this.currentPageSize, offset: this.currentPage });
     }
   }

@@ -1,31 +1,31 @@
 <div class="container">
-  <input class="input is-primary" type="text" (input)="filter($event)" [value]="filterValue" placeholder="filter based on name or ability">
+  <input class="input is-primary" type="text" id="filter" (input)="filter($event)" [value]="filterValue" placeholder="filter based on name or ability">
   <div class="columns my-2">
    <div class="column is-flex">
     <span class="mr-1"> page size</span>
     <span>
       <div class="buttons has-addons">
-        <button [class.active] = "currentPageSize === 10" (click)="changePageSize(10)" class="button">10</button>
-        <button  [class.active] = "currentPageSize === 20" (click)="changePageSize(20)" class="button">20</button>
-        <button   [class.active] = "currentPageSize === 30" (click)="changePageSize(30)" class="button">30</button>
+        <button [class.active] = "currentPageSize === 10" id="value-10" (click)="changePageSize(10)" class="button">10</button>
+        <button  [class.active] = "currentPageSize === 20"  id="value-20" (click)="changePageSize(20)" class="button">20</button>
+        <button   [class.active] = "currentPageSize === 50"  id="value-50" (click)="changePageSize(50)" class="button">50</button>
       </div>
     </span>   
-    <span (click)="changeSorting('name')" class=" mx-2">
+    <span (click)="changeSorting('name')" id="sort-by-name" class=" mx-2">
       <span  class="pr-2">Name</span>
       <span class="iconis-medium">
         <i *ngIf="sorting.name === 0" class="fas fa-arrow-up "></i>
         <i *ngIf="sorting.name === 1" class="fas fa-arrow-down"></i>
       </span>
     </span>
-    <span (click)="changeSorting('height')" class=" mx-2">
+    <span (click)="changeSorting('height')" id="sort-by-height" class=" mx-2">
       <span  class="pr-2">Height</span>
       <span class="iconis-medium">
         <i *ngIf="sorting.height === 0" class="fas fa-arrow-up "></i>
         <i *ngIf="sorting.height === 1" class="fas fa-arrow-down"></i>
       </span>
     </span>
-    <span (click)="changeSorting('width')" class=" mx-2">
-      <span class="pr-2">Width</span>
+    <span (click)="changeSorting('width')"  id="sort-by-weight" class=" mx-2">
+      <span class="pr-2">Weight</span>
       <span class="iconis-medium">
         <i *ngIf="sorting.width === 0" class="fas fa-arrow-up "></i>
         <i *ngIf="sorting.width === 1" class="fas fa-arrow-down"></i>
@@ -46,7 +46,7 @@
   <main>
     <ng-content></ng-content>
   </main>
-  <nav class="pagination  my-2" role="navigation" aria-label="pagination">
+  <nav class="pagination pagination-bottom  my-2" role="navigation" aria-label="pagination">
     <button class="pagination-previous" [disabled]="pageConfig.previous" (click)="previous()">Previous</button>
     <button class="pagination-next"  [disabled]="pageConfig.next" (click)="next()">Next page</button>
   </nav>

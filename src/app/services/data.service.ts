@@ -12,21 +12,12 @@ import { PokemonDetail } from '../model/pokemon-detail';
 @Injectable({ providedIn: 'root' })
 export class DataService {
   /**
-   * internalPokemons - internal storage for the pokemons
-   */
-  private internalPokemons: BehaviorSubject<Pokemon[]> = new BehaviorSubject<Pokemon[]>([]);
-
-  /**
    * dataStore - holds all the fetch pokemon
    */
   private dataStore: { pokemons: Pokemon[] } = { pokemons: [] };
 
   public get pokemonCount(): number {
     return this.dataStore.pokemons ? this.dataStore.pokemons.length : 0;
-  }
-
-  public assignPokemons(pokemon: Pokemon[]): void {
-    this.internalPokemons.next(pokemon);
   }
 
   /**
@@ -98,7 +89,8 @@ export class DataService {
   private fetchPokemonAdditionalDetails(url: string, pokemon: Pokemon): Observable<Pokemon> {
     return this.httpClient.get<Pokemon>(url).pipe(
       map((response) => {
-        return {
+        let updateIndex = this.dataStore.pokemons.findIndex((x) => x.name === pokemon.name);
+        const pokemonUpdate = {
           ...pokemon,
           height: response.height,
           weight: response.weight,
@@ -107,6 +99,10 @@ export class DataService {
           id: response.id,
           image: (response as any).sprites.front_default,
         };
+
+        this.dataStore.pokemons[updateIndex] = pokemonUpdate;
+        console.log(JSON.stringify(pokemonUpdate));
+        return pokemonUpdate;
       })
     );
   }

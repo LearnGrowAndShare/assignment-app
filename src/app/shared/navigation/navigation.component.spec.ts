@@ -17,4 +17,11 @@ describe('NavigationComponent', () => {
 
     expect(app).toBeTruthy();
   });
+
+  it('should have 2 nav menu item', () => {
+    const fixture = TestBed.createComponent(NavigationComponent);
+    const app = fixture.componentInstance;
+    const items: HTMLDivElement = fixture.debugElement.nativeElement.querySelector('#navbarBasicExample');
+    expect(items.childElementCount).toBe(2);
+  });
 });
