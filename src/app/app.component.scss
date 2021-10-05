@@ -1,0 +1,12 @@
+@import "style/mixin.scss";
+
+.router-wrapper {
+  display: flex;
+  height: calc(100% - 52px);
+  flex-direction: column;
+  width: 100%;
+
+  router-outlet + * {
+    @include flex-properties();
+  }
+}

@@ -1,0 +1,3 @@
+<app-pagination (filterChanged)="onFilterChanged($event)" (sortChanged)="onSortChanged($event)" (pageChanged)="onPageChanged($event)" [totalPokemons]="totalPokemons">
+    <app-cards class="is-flex is-flex-wrap-wrap" (cardSelection)="onCardSelection($event)" [pokemons]="pokemons$ | async | sort: sort | filter: filterKey"></app-cards>
+</app-pagination>

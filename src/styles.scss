@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @charset 'utf-8';
-@import "bulma/bulma.sass";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
 
 // Set your brand colors
 $purple: #8a4d61;
@@ -28,9 +30,20 @@ $input-shadow: none;
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/base/_all.sass";
 @import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/icon.sass";
+@import "bulma/sass/elements/tag.sass";
 @import "bulma/sass/elements/container.sass";
 @import "bulma/sass/elements/title.sass";
 @import "bulma/sass/form/_all.sass";
-@import "bulma/sass/components/navbar.sass";
-@import "bulma/sass/layout/hero.sass";
-@import "bulma/sass/layout/section.sass";
+@import "bulma/sass/components/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
+@import "bulma/sass/grid/_all.sass";
+@import "./app/style/mixin.scss";
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}

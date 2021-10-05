@@ -1,0 +1,86 @@
+<div class="container" *ngIf="pokemonDetails$ | async as pokemonDetails; else elseBlock">
+    <h3 class="is-flex"> <div class="is-flex-grow-1 is-size-2 has-text-primary">{{pokemonDetails.name}}</div> <button class="button is-align-self-flex-end" type="button" (click)="goBack()">Go back</button></h3>
+
+    <p> {{pokemonDetails.is_default ? 'Default pokemon' : 'Not a default pokemon'}} </p>
+    base_experience: 
+    <p>Pokemon order {{pokemonDetails.order}}</p>
+
+    <p>Base experience {{pokemonDetails.base_experience }}</p>
+    <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+           Moves
+          </p>
+ 
+        </header>
+        <div class="card-content">
+            <div class="content">
+                <span *ngFor="let move of pokemonDetails.moves" class="tag is-primary is-light mx-3">{{move}}</span>
+            </div>
+          </div>
+      </div>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Sprites
+          </p>
+ 
+        </header>
+        <div class="card-content">
+            <div class="content">
+                <img *ngFor="let sprite of pokemonDetails.sprites" class="" height="80"  src="{{sprite}}"/>
+            </div>
+          </div>
+      </div>
+
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Species
+          </p>
+ 
+        </header>
+        <div class="card-content">
+            <div class="content">
+                <span *ngFor="let species of pokemonDetails.species" class="tag is-primary is-light"> {{species}}</span>
+            </div>
+          </div>
+      </div>
+
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Types
+          </p>
+ 
+        </header>
+        <div class="card-content">
+            <div class="content">
+                <span *ngFor="let types of pokemonDetails.types" class="tag is-primary is-light"> {{types}}</span>
+            </div>
+          </div>
+      </div>
+
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Stats
+          </p>
+ 
+        </header>
+        <div class="card-content">
+            <div class="content is-flex">
+                <div *ngFor="let stats of pokemonDetails.stats" class="m-2 has-background-light p-2" > 
+                    <p>Base state - {{stats.base_stat}}</p>
+                    <p>Effort - {{stats.effort}}</p>
+                    <p>Name - {{stats.name}}</p>
+                </div>
+           
+            </div>
+          </div>
+      </div>
+
+</div>
+
+
+<ng-template #elseBlock><app-loading></app-loading></ng-template>

@@ -1,0 +1,26 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://i.pinimg.com/280x280_RS/33/ee/80/33ee8073e5bed9a76602939a941f73ff.jpg" width="80" height="100">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" [routerLink]="['/pokemon']">
+          Pokemons
+        </a>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item">
+            Documentation
+          </a>
+      </div>
+    </div>
+  </nav>
