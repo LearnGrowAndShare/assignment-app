@@ -1,0 +1,7 @@
+@import "../../../style/mixin.scss";
+
+.loading {
+  @include flex-properties();
+
+  justify-content: center;
+}
