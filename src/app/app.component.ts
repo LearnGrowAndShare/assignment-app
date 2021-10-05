@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   ngOnInit(): void {
     // mock simulation of the load view with loading
-    if (this.router.url.split('/').length < 2) {
+    if (this.router.url.split('/').filter((x) => x.length > 0).length < 2) {
       setTimeout(() => this.router.navigateByUrl('pokemon')), 200;
     }
   }
