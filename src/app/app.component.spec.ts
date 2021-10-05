@@ -1,13 +1,16 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { DataService } from './services/data.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
       declarations: [AppComponent],
+      imports: [RouterTestingModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -16,21 +19,5 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
 
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'Assignment'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-
-    expect(app.title).toEqual('Assignment');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-
-    expect(compiled.querySelector('.content span').textContent).toContain('Assignment app is running!');
   });
 });
