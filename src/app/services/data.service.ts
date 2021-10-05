@@ -101,7 +101,6 @@ export class DataService {
         };
 
         this.dataStore.pokemons[updateIndex] = pokemonUpdate;
-        console.log(JSON.stringify(pokemonUpdate));
         return pokemonUpdate;
       })
     );
